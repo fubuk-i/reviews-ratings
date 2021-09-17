@@ -46,3 +46,44 @@ exports.insert = function (doc, collectionName) {
     });
   })
 }
+
+
+exports.getCollectionCountWithCriteria = function (collectionName, criteria) {
+
+  return new Promise(function (resolve, reject) {
+    var coll = model.getModel(collectionName);
+    coll.find(criteria).count(function (err, count) {
+      if (err)
+        reject(err)
+      else
+        resolve(count)
+    })
+  })
+}
+
+exports.getCollectionWithCriteriaAndProjections = function (collectionName, criteria, projections, options) {
+
+  return new Promise(function (resolve, reject) {
+    var coll = model.getModel(collectionName);
+    coll.find(criteria, projections, options, function (err, results) {
+
+      if (err)
+        reject(err)
+      else
+        resolve(results)
+
+    })
+  })
+}
+
+exports.findAggregate = function (collectionName, aggregateArray) {
+
+  return new Promise(function (resolve, reject) {
+    var coll = model.getModel(collectionName);
+    coll.aggregate(aggregateArray).exec((err, aggVal) => {
+      if (err) reject(err);
+      resolve(aggVal)
+    });
+
+  })
+}

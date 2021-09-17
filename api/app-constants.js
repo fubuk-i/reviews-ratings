@@ -52,6 +52,8 @@ module.exports.APP_CONSTANTS = Object.freeze({
     POST:'post',
 
     CREATED_DATE:'createdDate',
-    CREATED_BY:'createdBy'
+    CREATED_BY:'createdBy',
+    ACTIVE : 'ACTIVE',
+    STATUS : 'status'
 
 });

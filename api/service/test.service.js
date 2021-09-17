@@ -1,5 +1,5 @@
 const dao = require('../daos/index');
-// const winston = require('../config/winston');
+
 const utils = require('./utils');
 
 //logic to add bulk data to datbase without repeating productId
